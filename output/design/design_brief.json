@@ -1,0 +1,44 @@
+{
+  "id": "brief-14756187fb994e71a11c400c1ecc106a",
+  "version": "0.1.0",
+  "meta": {
+    "name": "GIRA Raw Data → Control Dashboard",
+    "createdAt": "2026-02-11T14:35:34.713Z",
+    "sourceHash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "description": "No description provided"
+  },
+  "goals": [
+    {
+      "id": "G-001",
+      "description": "Implement GIRA Raw Data → Control Dashboard",
+      "priority": "must",
+      "category": "functional"
+    }
+  ],
+  "useCases": [
+    {
+      "id": "UC-001",
+      "actor": "User",
+      "action": "access the system",
+      "outcome": "Successfully authenticated and authorized"
+    },
+    {
+      "id": "UC-002",
+      "actor": "User",
+      "action": "view main dashboard",
+      "outcome": "Dashboard displays relevant information"
+    }
+  ],
+  "constraints": [],
+  "actors": [
+    {
+      "id": "A-001",
+      "name": "User",
+      "type": "user",
+      "responsibilities": [
+        "access the system",
+        "view main dashboard"
+      ]
+    }
+  ]
+}

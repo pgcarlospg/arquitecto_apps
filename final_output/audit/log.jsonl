@@ -1,0 +1,13 @@
+{"runId":"1770811928226-rloy4","level":"info","message":"Pipeline started","data":{"inputHash":"sha256:b7386fc58550816eba5f63cf2d159abe25aa2a6f14db790da39ed1280d04085f"},"timestamp":"2026-02-11T12:12:08.227Z"}
+{"runId":"1770811928226-rloy4","level":"info","agentId":"requirements-structurer","message":"Starting","timestamp":"2026-02-11T12:12:08.258Z"}
+{"runId":"1770811928226-rloy4","level":"info","agentId":"requirements-structurer","message":"Completed in 468ms","timestamp":"2026-02-11T12:12:08.738Z"}
+{"runId":"1770811928226-rloy4","level":"info","agentId":"domain-model","message":"Starting","timestamp":"2026-02-11T12:12:08.744Z"}
+{"runId":"1770811928226-rloy4","level":"info","agentId":"domain-model","message":"Completed in 91ms","timestamp":"2026-02-11T12:12:08.846Z"}
+{"runId":"1770811928226-rloy4","level":"info","agentId":"prompt-pack-designer","message":"Starting","timestamp":"2026-02-11T12:12:08.858Z"}
+{"runId":"1770811928226-rloy4","level":"error","message":"Agent prompt-pack-designer failed","data":{"errors":["Output validation failed: /: must have required property 'id' ({\"missingProperty\":\"id\"}), /: must have required property 'version' ({\"missingProperty\":\"version\"}), /: must have required property 'meta' ({\"missingProperty\":\"meta\"}), /: must have required property 'goals' ({\"missingProperty\":\"goals\"}), /: must have required property 'useCases' ({\"missingProperty\":\"useCases\"})"]},"timestamp":"2026-02-11T12:12:08.878Z"}
+{"runId":"1770811971331-yv7hwf","level":"info","message":"Pipeline started","data":{"inputHash":"sha256:b7386fc58550816eba5f63cf2d159abe25aa2a6f14db790da39ed1280d04085f"},"timestamp":"2026-02-11T12:12:51.331Z"}
+{"runId":"1770811971331-yv7hwf","level":"info","agentId":"requirements-structurer","message":"Starting","timestamp":"2026-02-11T12:12:51.352Z"}
+{"runId":"1770811971331-yv7hwf","level":"info","agentId":"requirements-structurer","message":"Completed in 453ms","timestamp":"2026-02-11T12:12:51.817Z"}
+{"runId":"1770811971331-yv7hwf","level":"info","agentId":"domain-model","message":"Starting","timestamp":"2026-02-11T12:12:51.830Z"}
+{"runId":"1770811971331-yv7hwf","level":"info","agentId":"domain-model","message":"Completed in 80ms","timestamp":"2026-02-11T12:12:51.924Z"}
+{"runId":"1770811971331-yv7hwf","level":"info","agentId":"prompt-pack-designer","message":"Starting","timestamp":"2026-02-11T12:12:51.931Z"}

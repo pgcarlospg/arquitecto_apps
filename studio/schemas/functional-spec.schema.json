@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://architect-studio/schemas/functional-spec.json",
+  "title": "FunctionalSpec",
+  "description": "Input specification for the architect studio",
+  "type": "object",
+  "required": ["projectName", "description"],
+  "properties": {
+    "projectName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "description": {
+      "type": "string",
+      "minLength": 10
+    },
+    "requirements": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 5
+      }
+    },
+    "sections": {
+      "type": "object",
+      "properties": {
+        "overview": { "type": "string" },
+        "goals": { "type": "string" },
+        "useCases": { "type": "string" },
+        "constraints": { "type": "string" },
+        "nonFunctional": { "type": "string" }
+      }
+    }
+  }
+}

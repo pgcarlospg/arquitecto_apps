@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://architect-studio/schemas/build-plan.json",
+  "title": "BuildPlan",
+  "description": "Plan for generating code scaffold with files and dependencies",
+  "type": "object",
+  "required": ["id", "version", "projectName", "files", "dependencies"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^buildplan-[a-f0-9-]+$"
+    },
+    "version": {
+      "$ref": "common/base.json#/$defs/semver"
+    },
+    "projectName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "stack": {
+      "$ref": "#/$defs/Stack"
+    },
+    "files": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/FileTemplate" },
+      "minItems": 1
+    },
+    "dependencies": {
+      "type": "object",
+      "properties": {
+        "runtime": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "dev": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        }
+      }
+    },
+    "resources": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Resource" },
+      "default": []
+    },
+    "scripts": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    }
+  },
+  "$defs": {
+    "Stack": {
+      "type": "object",
+      "required": ["type", "framework"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["nodejs", "python", "java", "go"]
+        },
+        "framework": {
+          "type": "string",
+          "enum": ["fastify", "express", "nestjs", "fastapi", "spring-boot", "gin"]
+        },
+        "database": {
+          "type": "string",
+          "enum": ["postgres", "mysql", "mongodb", "none"]
+        },
+        "features": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["auth", "docker", "tests", "openapi", "logging", "metrics"]
+          }
+        }
+      }
+    },
+    "FileTemplate": {
+      "type": "object",
+      "required": ["path", "type"],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "type": "string",
+          "enum": ["template", "static", "generated"]
+        },
+        "templateId": {
+          "type": "string",
+          "description": "Reference to template file if type=template"
+        },
+        "content": {
+          "type": "string",
+          "description": "Direct content if type=static or generated"
+        },
+        "variables": {
+          "type": "object",
+          "description": "Variables to pass to template"
+        }
+      }
+    },
+    "Resource": {
+      "type": "object",
+      "required": ["name", "type"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "^[A-Z][a-zA-Z0-9]*$"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["entity", "service", "controller"]
+        },
+        "routes": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/Route" }
+        }
+      }
+    },
+    "Route": {
+      "type": "object",
+      "required": ["method", "path", "operationId"],
+      "properties": {
+        "method": {
+          "type": "string",
+          "enum": ["GET", "POST", "PUT", "PATCH", "DELETE"]
+        },
+        "path": {
+          "type": "string",
+          "pattern": "^/"
+        },
+        "operationId": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

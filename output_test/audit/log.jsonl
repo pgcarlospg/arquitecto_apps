@@ -1,0 +1,5 @@
+{"runId":"1770811817246-4h6n8m","level":"info","message":"Pipeline started","data":{"inputHash":"sha256:b7386fc58550816eba5f63cf2d159abe25aa2a6f14db790da39ed1280d04085f"},"timestamp":"2026-02-11T12:10:17.247Z"}
+{"runId":"1770811817246-4h6n8m","level":"info","agentId":"requirements-structurer","message":"Starting","timestamp":"2026-02-11T12:10:17.281Z"}
+{"runId":"1770811817246-4h6n8m","level":"info","agentId":"requirements-structurer","message":"Completed in 600ms","timestamp":"2026-02-11T12:10:17.896Z"}
+{"runId":"1770811817246-4h6n8m","level":"info","agentId":"domain-model","message":"Starting","timestamp":"2026-02-11T12:10:17.902Z"}
+{"runId":"1770811817246-4h6n8m","level":"error","message":"Agent domain-model failed","data":{"errors":["Output validation failed: /id: must match pattern \"^domain-[a-f0-9-]+$\" ({\"pattern\":\"^domain-[a-f0-9-]+$\"})"]},"timestamp":"2026-02-11T12:10:17.994Z"}

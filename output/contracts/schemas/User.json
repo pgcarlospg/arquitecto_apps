@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "username": {
+      "type": "string"
+    },
+    "passwordHash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "createdAt",
+    "updatedAt",
+    "email",
+    "username",
+    "passwordHash"
+  ]
+}

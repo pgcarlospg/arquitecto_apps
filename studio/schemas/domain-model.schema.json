@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://architect-studio/schemas/domain-model.json",
+  "title": "DomainModel",
+  "description": "Domain entities, relationships, and business rules",
+  "type": "object",
+  "required": ["id", "version", "entities"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^domain-[a-f0-9-]+$"
+    },
+    "version": {
+      "$ref": "common/base.json#/$defs/semver"
+    },
+    "entities": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Entity" },
+      "minItems": 1
+    },
+    "relationships": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Relationship" },
+      "default": []
+    },
+    "valueObjects": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/ValueObject" },
+      "default": []
+    }
+  },
+  "$defs": {
+    "Entity": {
+      "type": "object",
+      "required": ["name", "attributes"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "^[A-Z][a-zA-Z0-9]*$"
+        },
+        "description": {
+          "type": "string"
+        },
+        "attributes": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/Attribute" },
+          "minItems": 1
+        },
+        "isAggregate": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "Attribute": {
+      "type": "object",
+      "required": ["name", "type"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "^[a-z][a-zA-Z0-9]*$"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["string", "number", "boolean", "date", "datetime", "uuid", "email", "url", "text", "array", "object"]
+        },
+        "required": {
+          "type": "boolean",
+          "default": false
+        },
+        "unique": {
+          "type": "boolean",
+          "default": false
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "Relationship": {
+      "type": "object",
+      "required": ["from", "to", "type"],
+      "properties": {
+        "from": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["one-to-one", "one-to-many", "many-to-many"]
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "ValueObject": {
+      "type": "object",
+      "required": ["name", "fields"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "^[A-Z][a-zA-Z0-9]*$"
+        },
+        "fields": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/Attribute" }
+        }
+      }
+    }
+  }
+}

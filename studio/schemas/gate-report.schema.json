@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://architect-studio/schemas/gate-report.json",
+  "title": "GateReport",
+  "description": "Quality gate validation report with check results and recommendations",
+  "type": "object",
+  "required": ["id", "runId", "timestamp", "summary", "stages"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^report-[a-f0-9-]+$"
+    },
+    "runId": {
+      "$ref": "common/base.json#/$defs/uuid"
+    },
+    "timestamp": {
+      "$ref": "common/base.json#/$defs/timestamp"
+    },
+    "duration": {
+      "$ref": "#/$defs/Duration"
+    },
+    "summary": {
+      "$ref": "#/$defs/Summary"
+    },
+    "stages": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/StageReport" },
+      "minItems": 1
+    },
+    "recommendations": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": []
+    }
+  },
+  "$defs": {
+    "Duration": {
+      "type": "object",
+      "required": ["totalMs"],
+      "properties": {
+        "totalMs": {
+          "type": "number",
+          "minimum": 0
+        },
+        "byStage": {
+          "type": "object",
+          "additionalProperties": { "type": "number" }
+        }
+      }
+    },
+    "Summary": {
+      "type": "object",
+      "required": ["totalChecks", "passed", "warnings", "errors", "overallStatus"],
+      "properties": {
+        "totalChecks": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "passed": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "warnings": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "errors": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "overallStatus": {
+          "type": "string",
+          "enum": ["passed", "passed-with-warnings", "failed"]
+        }
+      }
+    },
+    "StageReport": {
+      "type": "object",
+      "required": ["agentId", "status", "inputHash"],
+      "properties": {
+        "agentId": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["passed", "failed", "skipped"]
+        },
+        "inputHash": {
+          "$ref": "common/base.json#/$defs/sha256Hash"
+        },
+        "outputHash": {
+          "$ref": "common/base.json#/$defs/sha256Hash"
+        },
+        "checks": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/CheckResult" },
+          "default": []
+        },
+        "errors": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": []
+        },
+        "durationMs": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "CheckResult": {
+      "type": "object",
+      "required": ["name", "passed", "severity", "message"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "passed": {
+          "type": "boolean"
+        },
+        "severity": {
+          "type": "string",
+          "enum": ["error", "warning", "info"]
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "object",
+          "description": "Additional context about the check"
+        }
+      }
+    }
+  }
+}

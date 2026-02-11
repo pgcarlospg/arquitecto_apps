@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://architect-studio/schemas/adr.json",
+  "title": "ArchitectureDecisionRecord",
+  "description": "Architecture Decision Record with context and consequences",
+  "type": "object",
+  "required": ["id", "title", "status", "context", "decision", "consequences"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^ADR-\\d{3}$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 5
+    },
+    "status": {
+      "type": "string",
+      "enum": ["proposed", "accepted", "rejected", "deprecated", "superseded"]
+    },
+    "date": {
+      "$ref": "common/base.json#/$defs/timestamp"
+    },
+    "context": {
+      "type": "string",
+      "minLength": 20,
+      "description": "The issue or situation motivating this decision"
+    },
+    "decision": {
+      "type": "string",
+      "minLength": 20,
+      "description": "The change or approach being proposed or adopted"
+    },
+    "consequences": {
+      "$ref": "#/$defs/Consequences"
+    },
+    "alternatives": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Alternative" },
+      "minItems": 1,
+      "description": "Alternative approaches considered"
+    },
+    "relatedDecisions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^ADR-\\d{3}$"
+      }
+    }
+  },
+  "$defs": {
+    "Consequences": {
+      "type": "object",
+      "properties": {
+        "positive": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Benefits of this decision"
+        },
+        "negative": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Drawbacks or risks"
+        },
+        "neutral": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Other impacts"
+        }
+      }
+    },
+    "Alternative": {
+      "type": "object",
+      "required": ["name", "description"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 3
+        },
+        "description": {
+          "type": "string",
+          "minLength": 10
+        },
+        "rejected": {
+          "type": "boolean",
+          "default": true
+        },
+        "reason": {
+          "type": "string",
+          "description": "Why this alternative was rejected"
+        }
+      }
+    }
+  }
+}

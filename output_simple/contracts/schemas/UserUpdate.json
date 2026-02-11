@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "username": {
+      "type": "string"
+    },
+    "passwordHash": {
+      "type": "string"
+    }
+  }
+}

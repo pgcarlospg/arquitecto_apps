@@ -1,0 +1,267 @@
+{
+  "id": "brief-3534a07410134c17bc190db3f11e2d66",
+  "version": "0.1.0",
+  "meta": {
+    "name": "Functional Specification Template",
+    "createdAt": "2026-02-11T14:19:49.117Z",
+    "sourceHash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "description": "[Provide a brief 2-3 paragraph overview of the project. Describe what the system does, who it's for, and why it's needed.]\r\n\r\nExample:\r\nThis project aims to create a modern web application that helps users manage their daily tasks efficiently. The system will provide a clean, intuitive interface for creating, organizing, and tracking tasks with support for priorities, deadlines, and categories."
+  },
+  "goals": [
+    {
+      "id": "G-001",
+      "description": "The primary objectives of this system are:",
+      "priority": "must",
+      "category": "functional"
+    },
+    {
+      "id": "G-002",
+      "description": "Enable users to quickly capture and organize tasks",
+      "priority": "must",
+      "category": "functional"
+    },
+    {
+      "id": "G-003",
+      "description": "Provide visibility into task status and progress",
+      "priority": "must",
+      "category": "functional"
+    },
+    {
+      "id": "G-004",
+      "description": "Support collaboration and task sharing",
+      "priority": "must",
+      "category": "functional"
+    },
+    {
+      "id": "G-005",
+      "description": "Integrate with existing tools and workflows",
+      "priority": "must",
+      "category": "functional"
+    },
+    {
+      "id": "G-006",
+      "description": "Scale to support thousands of concurrent users",
+      "priority": "must",
+      "category": "functional"
+    }
+  ],
+  "useCases": [
+    {
+      "id": "UC-001",
+      "actor": "User",
+      "action": "create a new account with email and password",
+      "outcome": "Successfully create a new account with email and password"
+    },
+    {
+      "id": "UC-002",
+      "actor": "User",
+      "action": "log in with existing credentials",
+      "outcome": "Successfully log in with existing credentials"
+    },
+    {
+      "id": "UC-003",
+      "actor": "User",
+      "action": "reset password via email",
+      "outcome": "Successfully reset password via email"
+    },
+    {
+      "id": "UC-004",
+      "actor": "User profile includes name, email, and preferences",
+      "action": "User profile includes name, email, and preferences",
+      "outcome": "Successfully user profile includes name, email, and preferences"
+    },
+    {
+      "id": "UC-005",
+      "actor": "User",
+      "action": "create a new task with title and description",
+      "outcome": "Successfully create a new task with title and description"
+    },
+    {
+      "id": "UC-006",
+      "actor": "User",
+      "action": "edit existing tasks",
+      "outcome": "Successfully edit existing tasks"
+    },
+    {
+      "id": "UC-007",
+      "actor": "User",
+      "action": "mark tasks as complete",
+      "outcome": "Successfully mark tasks as complete"
+    },
+    {
+      "id": "UC-008",
+      "actor": "User",
+      "action": "delete tasks",
+      "outcome": "Successfully delete tasks"
+    },
+    {
+      "id": "UC-009",
+      "actor": "User",
+      "action": "view all their tasks in a list",
+      "outcome": "Successfully view all their tasks in a list"
+    },
+    {
+      "id": "UC-010",
+      "actor": "User",
+      "action": "filter tasks by status, priority, or category",
+      "outcome": "Successfully filter tasks by status, priority, or category"
+    },
+    {
+      "id": "UC-011",
+      "actor": "User",
+      "action": "assign priority levels to tasks (high, medium, low)",
+      "outcome": "Successfully assign priority levels to tasks (high, medium, low)"
+    },
+    {
+      "id": "UC-012",
+      "actor": "User",
+      "action": "set due dates for tasks",
+      "outcome": "Successfully set due dates for tasks"
+    },
+    {
+      "id": "UC-013",
+      "actor": "User",
+      "action": "categorize tasks with labels or tags",
+      "outcome": "Successfully categorize tasks with labels or tags"
+    },
+    {
+      "id": "UC-014",
+      "actor": "User",
+      "action": "search tasks by keyword",
+      "outcome": "Successfully search tasks by keyword"
+    },
+    {
+      "id": "UC-015",
+      "actor": "User receives reminder notifications for upcoming deadlines",
+      "action": "User receives reminder notifications for upcoming deadlines",
+      "outcome": "Successfully user receives reminder notifications for upcoming deadlines"
+    },
+    {
+      "id": "UC-016",
+      "actor": "User receives daily summary of pending tasks",
+      "action": "User receives daily summary of pending tasks",
+      "outcome": "Successfully user receives daily summary of pending tasks"
+    },
+    {
+      "id": "UC-017",
+      "actor": "User",
+      "action": "configure notification preferences",
+      "outcome": "Successfully configure notification preferences"
+    }
+  ],
+  "constraints": [
+    {
+      "id": "C-001",
+      "type": "technical",
+      "description": "Must be built as a web application accessible via modern browsers",
+      "impact": "medium"
+    },
+    {
+      "id": "C-002",
+      "type": "technical",
+      "description": "Must support mobile devices (responsive design)",
+      "impact": "medium"
+    },
+    {
+      "id": "C-003",
+      "type": "technical",
+      "description": "Backend must be RESTful API with JSON responses",
+      "impact": "medium"
+    },
+    {
+      "id": "C-004",
+      "type": "technical",
+      "description": "Must use PostgreSQL for data persistence",
+      "impact": "medium"
+    },
+    {
+      "id": "C-005",
+      "type": "technical",
+      "description": "Must handle at least 1000 concurrent users",
+      "impact": "medium"
+    },
+    {
+      "id": "C-006",
+      "type": "technical",
+      "description": "Initial MVP must be delivered within 3 months",
+      "impact": "medium"
+    },
+    {
+      "id": "C-007",
+      "type": "technical",
+      "description": "Must be deployable on standard cloud infrastructure (AWS, GCP, or Azure)",
+      "impact": "medium"
+    },
+    {
+      "id": "C-008",
+      "type": "technical",
+      "description": "Must comply with GDPR for user data handling",
+      "impact": "medium"
+    },
+    {
+      "id": "C-009",
+      "type": "technical",
+      "description": "User data must be encrypted at rest and in transit",
+      "impact": "medium"
+    },
+    {
+      "id": "C-010",
+      "type": "technical",
+      "description": "User authentication must use industry-standard methods",
+      "impact": "medium"
+    },
+    {
+      "id": "C-011",
+      "type": "technical",
+      "description": "Must provide data export functionality for users",
+      "impact": "medium"
+    }
+  ],
+  "actors": [
+    {
+      "id": "A-001",
+      "name": "User",
+      "type": "user",
+      "responsibilities": [
+        "create a new account with email and password",
+        "log in with existing credentials",
+        "reset password via email",
+        "create a new task with title and description",
+        "edit existing tasks",
+        "mark tasks as complete",
+        "delete tasks",
+        "view all their tasks in a list",
+        "filter tasks by status, priority, or category",
+        "assign priority levels to tasks (high, medium, low)",
+        "set due dates for tasks",
+        "categorize tasks with labels or tags",
+        "search tasks by keyword",
+        "configure notification preferences"
+      ]
+    },
+    {
+      "id": "A-002",
+      "name": "User profile includes name, email, and preferences",
+      "type": "user",
+      "responsibilities": [
+        "User profile includes name, email, and preferences"
+      ]
+    },
+    {
+      "id": "A-003",
+      "name": "User receives reminder notifications for upcoming deadlines",
+      "type": "user",
+      "responsibilities": [
+        "User receives reminder notifications for upcoming deadlines"
+      ]
+    },
+    {
+      "id": "A-004",
+      "name": "User receives daily summary of pending tasks",
+      "type": "user",
+      "responsibilities": [
+        "User receives daily summary of pending tasks"
+      ]
+    }
+  ]
+}

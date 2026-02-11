@@ -1,0 +1,78 @@
+{
+  "runId": "3534a074-1013-4c17-bc19-0db3f11e2d66",
+  "startTime": "2026-02-11T14:19:49.117Z",
+  "endTime": "2026-02-11T14:19:49.784Z",
+  "inputHash": "sha256:3292f7c6970fe54b6695f595d7ce7de0b31b95c314de04de37e8f77019c507ee",
+  "spec": {
+    "path": "",
+    "projectName": ""
+  },
+  "stages": [
+    {
+      "agentId": "requirements-structurer",
+      "startTime": "",
+      "endTime": "",
+      "durationMs": 340,
+      "inputHash": "sha256:3292f7c6970fe54b6695f595d7ce7de0b31b95c314de04de37e8f77019c507ee",
+      "outputHash": "sha256:815e85670a41270d5031c87efc3e43b297d8b2d97dcce00eca715c2567ea2b82",
+      "success": true
+    },
+    {
+      "agentId": "domain-model",
+      "startTime": "",
+      "endTime": "",
+      "durationMs": 53,
+      "inputHash": "sha256:815e85670a41270d5031c87efc3e43b297d8b2d97dcce00eca715c2567ea2b82",
+      "outputHash": "sha256:c6ddddf3967cdec8dfa4e76ac1a283831e4bc5b0899cb06a8be65d960397655d",
+      "success": true
+    },
+    {
+      "agentId": "prompt-pack-designer",
+      "startTime": "",
+      "endTime": "",
+      "durationMs": 4,
+      "inputHash": "sha256:815e85670a41270d5031c87efc3e43b297d8b2d97dcce00eca715c2567ea2b82",
+      "outputHash": "sha256:0e1ec87db07d0216a770f94e6fd31edbe6dd05a5ea1caebba142e384a5fcd902",
+      "success": true
+    },
+    {
+      "agentId": "system-architect",
+      "startTime": "",
+      "endTime": "",
+      "durationMs": 42,
+      "inputHash": "sha256:974aea32e527fec8c965717b40b1d0c27c7a548684cb29c23b5a88a9658166fa",
+      "outputHash": "sha256:8d7f3eff31ef3bbc889fa361eaa8bcc7b992325bfb9f8e3e7a28c72a1727fd0f",
+      "success": true
+    },
+    {
+      "agentId": "api-contract",
+      "startTime": "",
+      "endTime": "",
+      "durationMs": 10,
+      "inputHash": "sha256:cbe83be97a2eb6a9493743cfac81cb0ab6935de8fb93fcc73be92f6ea2b0000f",
+      "outputHash": "sha256:e8cbaff33004aef1f62d2f53053fe5baec27136861568185fbb201d0032a8323",
+      "success": true
+    },
+    {
+      "agentId": "scaffold-builder",
+      "startTime": "",
+      "endTime": "",
+      "durationMs": 39,
+      "inputHash": "sha256:6e8186b7613e2b8e3fcc18eb21e8f9c0799093739ae06f21e2c507fa0eb86789",
+      "outputHash": "sha256:62864562f3f93da24399f3c4d768a103ab70484afb238d97b283627ed75ded28",
+      "success": true
+    },
+    {
+      "agentId": "reviewer-verifier",
+      "startTime": "",
+      "endTime": "",
+      "durationMs": 37,
+      "inputHash": "sha256:810b31f01ad1c2afbf4471bd2aa05ac5aab7629b15045e06342471514b4fa1d5",
+      "outputHash": "sha256:4583f0cd84c0cc9b3f9a01e77e4ff222424736cb38737ae446ad5c03e86e85ca",
+      "success": true
+    }
+  ],
+  "outputs": {},
+  "overallStatus": "success",
+  "totalDurationMs": 667
+}

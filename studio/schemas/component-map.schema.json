@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://architect-studio/schemas/component-map.json",
+  "title": "ComponentMap",
+  "description": "System component architecture with layers and connections",
+  "type": "object",
+  "required": ["id", "version", "systemName", "components", "layers"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^componentmap-[a-f0-9-]+$"
+    },
+    "version": {
+      "$ref": "common/base.json#/$defs/semver"
+    },
+    "systemName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "architectureStyle": {
+      "type": "string",
+      "enum": ["layered", "hexagonal", "microservices", "event-driven", "modular-monolith"],
+      "default": "layered"
+    },
+    "components": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Component" },
+      "minItems": 1
+    },
+    "connections": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Connection" },
+      "default": []
+    },
+    "layers": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Layer" },
+      "minItems": 1
+    }
+  },
+  "$defs": {
+    "Component": {
+      "type": "object",
+      "required": ["id", "name", "layer", "type"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^COMP-\\d{3}$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "layer": {
+          "type": "string",
+          "enum": ["presentation", "application", "domain", "infrastructure"]
+        },
+        "type": {
+          "type": "string",
+          "enum": ["controller", "service", "repository", "entity", "value-object", "middleware", "gateway", "worker"]
+        },
+        "responsibilities": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "handlesEntities": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "dependencies": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^COMP-\\d{3}$" }
+        }
+      }
+    },
+    "Connection": {
+      "type": "object",
+      "required": ["from", "to", "type"],
+      "properties": {
+        "from": {
+          "type": "string",
+          "pattern": "^COMP-\\d{3}$"
+        },
+        "to": {
+          "type": "string",
+          "pattern": "^COMP-\\d{3}$"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["sync", "async", "event", "data-flow"]
+        },
+        "protocol": {
+          "type": "string",
+          "enum": ["http", "grpc", "websocket", "message-queue", "database"]
+        }
+      }
+    },
+    "Layer": {
+      "type": "object",
+      "required": ["name", "order"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "enum": ["presentation", "application", "domain", "infrastructure"]
+        },
+        "order": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

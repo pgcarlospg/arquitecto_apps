@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://architect-studio/schemas/common/base.json",
+  "title": "Base Common Definitions",
+  "description": "Shared type definitions used across all schemas",
+  "$defs": {
+    "semver": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+(-[\\w.]+)?(\\+[\\w.]+)?$",
+      "examples": ["1.0.0", "2.1.3-beta.1", "0.1.0+20240211"]
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "sha256Hash": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$",
+      "examples": ["sha256:abc123..."]
+    },
+    "uuid": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "priority": {
+      "type": "string",
+      "enum": ["must", "should", "could", "wont"]
+    },
+    "url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    }
+  }
+}

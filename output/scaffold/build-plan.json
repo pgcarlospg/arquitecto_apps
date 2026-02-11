@@ -1,0 +1,259 @@
+{
+  "id": "buildplan-14756187fb994e71a11c400c1ecc106a",
+  "version": "1.0.0",
+  "projectName": "gira-raw-data-→-control-dashboard",
+  "stack": {
+    "type": "nodejs",
+    "framework": "fastify",
+    "database": "postgres",
+    "features": [
+      "docker",
+      "openapi",
+      "logging"
+    ]
+  },
+  "files": [
+    {
+      "path": "package.json",
+      "type": "generated"
+    },
+    {
+      "path": "tsconfig.json",
+      "type": "generated"
+    },
+    {
+      "path": ".env.example",
+      "type": "static"
+    },
+    {
+      "path": ".gitignore",
+      "type": "static"
+    },
+    {
+      "path": "README.md",
+      "type": "static"
+    },
+    {
+      "path": "Dockerfile",
+      "type": "static"
+    },
+    {
+      "path": "docker-compose.yml",
+      "type": "static"
+    },
+    {
+      "path": "src/index.ts",
+      "type": "static"
+    },
+    {
+      "path": "src/app.ts",
+      "type": "static"
+    },
+    {
+      "path": "src/config/index.ts",
+      "type": "static"
+    },
+    {
+      "path": "src/config/database.ts",
+      "type": "static"
+    },
+    {
+      "path": "src/plugins/cors.ts",
+      "type": "static"
+    },
+    {
+      "path": "src/plugins/swagger.ts",
+      "type": "static"
+    },
+    {
+      "path": "src/middleware/auth.ts",
+      "type": "static"
+    },
+    {
+      "path": "src/middleware/error-handler.ts",
+      "type": "static"
+    },
+    {
+      "path": "src/db/client.ts",
+      "type": "static"
+    },
+    {
+      "path": "src/db/schema.sql",
+      "type": "static"
+    },
+    {
+      "path": "src/routes/user/index.ts",
+      "type": "generated"
+    },
+    {
+      "path": "src/routes/user/schema.ts",
+      "type": "generated"
+    },
+    {
+      "path": "src/routes/user/service.ts",
+      "type": "generated"
+    },
+    {
+      "path": "src/routes/user/repository.ts",
+      "type": "generated"
+    },
+    {
+      "path": "src/routes/account/index.ts",
+      "type": "generated"
+    },
+    {
+      "path": "src/routes/account/schema.ts",
+      "type": "generated"
+    },
+    {
+      "path": "src/routes/account/service.ts",
+      "type": "generated"
+    },
+    {
+      "path": "src/routes/account/repository.ts",
+      "type": "generated"
+    },
+    {
+      "path": "src/routes/profile/index.ts",
+      "type": "generated"
+    },
+    {
+      "path": "src/routes/profile/schema.ts",
+      "type": "generated"
+    },
+    {
+      "path": "src/routes/profile/service.ts",
+      "type": "generated"
+    },
+    {
+      "path": "src/routes/profile/repository.ts",
+      "type": "generated"
+    },
+    {
+      "path": "src/routes/settings/index.ts",
+      "type": "generated"
+    },
+    {
+      "path": "src/routes/settings/schema.ts",
+      "type": "generated"
+    },
+    {
+      "path": "src/routes/settings/service.ts",
+      "type": "generated"
+    },
+    {
+      "path": "src/routes/settings/repository.ts",
+      "type": "generated"
+    },
+    {
+      "path": "src/routes/task/index.ts",
+      "type": "generated"
+    },
+    {
+      "path": "src/routes/task/schema.ts",
+      "type": "generated"
+    },
+    {
+      "path": "src/routes/task/service.ts",
+      "type": "generated"
+    },
+    {
+      "path": "src/routes/task/repository.ts",
+      "type": "generated"
+    },
+    {
+      "path": "src/routes/item/index.ts",
+      "type": "generated"
+    },
+    {
+      "path": "src/routes/item/schema.ts",
+      "type": "generated"
+    },
+    {
+      "path": "src/routes/item/service.ts",
+      "type": "generated"
+    },
+    {
+      "path": "src/routes/item/repository.ts",
+      "type": "generated"
+    },
+    {
+      "path": "src/routes/project/index.ts",
+      "type": "generated"
+    },
+    {
+      "path": "src/routes/project/schema.ts",
+      "type": "generated"
+    },
+    {
+      "path": "src/routes/project/service.ts",
+      "type": "generated"
+    },
+    {
+      "path": "src/routes/project/repository.ts",
+      "type": "generated"
+    }
+  ],
+  "dependencies": {
+    "runtime": {
+      "fastify": "^4.26.0",
+      "@fastify/cors": "^9.0.0",
+      "@fastify/swagger": "^8.14.0",
+      "@fastify/swagger-ui": "^3.0.0",
+      "pg": "^8.11.0",
+      "dotenv": "^16.4.0",
+      "pino": "^8.19.0",
+      "pino-pretty": "^10.3.0"
+    },
+    "dev": {
+      "typescript": "^5.3.0",
+      "@types/node": "^20.11.0",
+      "@types/pg": "^8.11.0",
+      "tsx": "^4.7.0",
+      "nodemon": "^3.0.0"
+    }
+  },
+  "resources": [
+    {
+      "name": "User",
+      "type": "entity",
+      "routes": []
+    },
+    {
+      "name": "Account",
+      "type": "entity",
+      "routes": []
+    },
+    {
+      "name": "Profile",
+      "type": "entity",
+      "routes": []
+    },
+    {
+      "name": "Settings",
+      "type": "entity",
+      "routes": []
+    },
+    {
+      "name": "Task",
+      "type": "entity",
+      "routes": []
+    },
+    {
+      "name": "Item",
+      "type": "entity",
+      "routes": []
+    },
+    {
+      "name": "Project",
+      "type": "entity",
+      "routes": []
+    }
+  ],
+  "scripts": {
+    "dev": "nodemon --exec tsx src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "typecheck": "tsc --noEmit"
+  }
+}

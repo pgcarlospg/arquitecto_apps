@@ -1,0 +1,159 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://architect-studio/schemas/design-brief.json",
+  "title": "DesignBrief",
+  "description": "Structured requirements extracted from functional specification",
+  "type": "object",
+  "required": ["id", "version", "meta", "goals", "useCases"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^brief-[a-f0-9-]+$"
+    },
+    "version": {
+      "$ref": "common/base.json#/$defs/semver"
+    },
+    "meta": {
+      "$ref": "#/$defs/BriefMeta"
+    },
+    "goals": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Goal" },
+      "minItems": 1
+    },
+    "useCases": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/UseCase" },
+      "minItems": 1
+    },
+    "constraints": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Constraint" },
+      "default": []
+    },
+    "actors": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Actor" },
+      "default": []
+    }
+  },
+  "$defs": {
+    "BriefMeta": {
+      "type": "object",
+      "required": ["name", "createdAt", "sourceHash"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "createdAt": {
+          "$ref": "common/base.json#/$defs/timestamp"
+        },
+        "sourceHash": {
+          "$ref": "common/base.json#/$defs/sha256Hash"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "Goal": {
+      "type": "object",
+      "required": ["id", "description", "priority"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^G-\\d{3}$"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 5
+        },
+        "priority": {
+          "$ref": "common/base.json#/$defs/priority"
+        },
+        "category": {
+          "type": "string",
+          "enum": ["functional", "technical", "business", "user-experience"]
+        }
+      }
+    },
+    "UseCase": {
+      "type": "object",
+      "required": ["id", "actor", "action", "outcome"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^UC-\\d{3}$"
+        },
+        "actor": {
+          "type": "string",
+          "minLength": 1
+        },
+        "action": {
+          "type": "string",
+          "minLength": 5
+        },
+        "outcome": {
+          "type": "string",
+          "minLength": 5
+        },
+        "linkedGoals": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^G-\\d{3}$"
+          }
+        },
+        "preconditions": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "Constraint": {
+      "type": "object",
+      "required": ["id", "type", "description"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^C-\\d{3}$"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["technical", "business", "regulatory", "resource", "timeline"]
+        },
+        "description": {
+          "type": "string",
+          "minLength": 5
+        },
+        "impact": {
+          "type": "string",
+          "enum": ["high", "medium", "low"]
+        }
+      }
+    },
+    "Actor": {
+      "type": "object",
+      "required": ["id", "name", "type"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^A-\\d{3}$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "type": "string",
+          "enum": ["user", "system", "admin", "external"]
+        },
+        "responsibilities": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  }
+}

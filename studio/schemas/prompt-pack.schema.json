@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://architect-studio/schemas/prompt-pack.json",
+  "title": "PromptPack",
+  "description": "Versioned prompt template for an agent with input/output schemas",
+  "type": "object",
+  "required": ["id", "agentId", "version", "systemPrompt", "inputSchema", "outputSchema"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^prompt-[a-z-]+-v\\d+"
+    },
+    "agentId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "$ref": "common/base.json#/$defs/semver"
+    },
+    "meta": {
+      "$ref": "#/$defs/Meta"
+    },
+    "systemPrompt": {
+      "type": "string",
+      "minLength": 50,
+      "description": "The main prompt template with {{variables}}"
+    },
+    "variables": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Variable" },
+      "default": []
+    },
+    "inputSchema": {
+      "type": "string",
+      "format": "uri",
+      "description": "JSON Schema $id for input validation"
+    },
+    "outputSchema": {
+      "type": "string",
+      "format": "uri",
+      "description": "JSON Schema $id for output validation"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Example" },
+      "default": []
+    },
+    "constraints": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Hard constraints the agent must follow"
+    },
+    "refusalRules": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Conditions under which the agent should refuse or ask for clarification"
+    }
+  },
+  "$defs": {
+    "Meta": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "author": { "type": "string" },
+        "lastUpdated": { "$ref": "common/base.json#/$defs/timestamp" }
+      }
+    },
+    "Variable": {
+      "type": "object",
+      "required": ["name", "type"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_]*$"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["string", "number", "boolean", "array", "object"]
+        },
+        "required": {
+          "type": "boolean",
+          "default": false
+        },
+        "default": {
+          "description": "Default value if not provided"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "Example": {
+      "type": "object",
+      "required": ["name", "input"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "input": {
+          "type": "object",
+          "description": "Example input matching inputSchema"
+        },
+        "expectedOutput": {
+          "type": "object",
+          "description": "Expected output matching outputSchema"
+        }
+      }
+    }
+  }
+}
